@@ -36,3 +36,11 @@ Route::get('/test', function () {
     ]);
 
 });
+
+
+/**
+ * Wildcard example
+ */
+Route::get('/post/{post}', function ($post) {
+    return $post;
+});
