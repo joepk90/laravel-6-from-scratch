@@ -42,5 +42,18 @@ Route::get('/test', function () {
  * Wildcard example
  */
 Route::get('/post/{post}', function ($post) {
-    return $post;
+
+     $posts = [
+        'first-post' => 'My first blog post...',
+        'second-post' => 'My second blog post...'
+    ];
+
+    if (array_key_exists($post, $posts) === false) {
+        abort(404, 'Sorry, post not found');
+    }
+
+    return view('post', [
+        'post' => $posts[$post]
+    ]);
+
 });
