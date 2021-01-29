@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::get('/example', function () {
+
+    // return 'hello world';
+    return ['john', 'smith']; // laravel will automatically convert to JSON
+
+});
