@@ -8,5 +8,10 @@
 <body>
 
     <h1>{{$name}}</h1>
+
+    <!-- example of unescaped variable -->
+    <!-- <h1>{{!! $name !!}}</h1> --> 
+
+
 </body>
 </html>
