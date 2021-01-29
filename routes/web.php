@@ -25,3 +25,8 @@ Route::get('/example', function () {
     return ['john', 'smith']; // laravel will automatically convert to JSON
 
 });
+
+
+Route::get('/test', function () {
+    return view('test');
+});
