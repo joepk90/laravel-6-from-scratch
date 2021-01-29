@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -16,7 +17,9 @@ class PostsController extends Controller
          */
 
         // post = \DB::table('posts')->where('slug', $slug)->first(); \ required if not imported at the top
-        $post = DB::table('posts')->where('slug', $slug)->first();
+        // $post = DB::table('posts')->where('slug', $slug)->first();
+
+        $post = Post::where('slug', $slug)->first();
        
         if ($post === null) {
             abort(404, 'Sorry, post not found');
