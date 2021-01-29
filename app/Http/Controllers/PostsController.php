@@ -8,19 +8,14 @@ class PostsController extends Controller
 {
     public function show($slug) {
 
-        $posts = [
-            'first-post' => 'My first blog post...',
-            'second-post' => 'My second blog post...'
-        ];
-
+        $post = \DB::table('posts')->where('slug', $slug)->first();
        
-        if (array_key_exists($slug, $posts) === false) {
+        if ($post === null) {
             abort(404, 'Sorry, post not found');
         }
 
-
         return view('post', [
-            'post' => $posts[$slug]
+            'post' => $post
         ]);
 
     }
