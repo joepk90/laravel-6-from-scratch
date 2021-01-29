@@ -19,11 +19,8 @@ class PostsController extends Controller
         // post = \DB::table('posts')->where('slug', $slug)->first(); \ required if not imported at the top
         // $post = DB::table('posts')->where('slug', $slug)->first();
 
-        $post = Post::where('slug', $slug)->first();
-       
-        if ($post === null) {
-            abort(404, 'Sorry, post not found');
-        }
+        // firstOrFail: return first post that matches or throw an error creating a model not found exception returning a 404
+        $post = Post::where('slug', $slug)->firstOrFail(); 
 
         return view('post', [
             'post' => $post
