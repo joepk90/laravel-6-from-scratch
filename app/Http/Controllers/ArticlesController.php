@@ -14,4 +14,8 @@ class ArticlesController extends Controller
         return view('articles.show', ['article' => $article]);
 
     }
+
+    public function paginate() {
+        return view('articles.list', ['articles' => Article::paginate(10)]);
+    }
 }

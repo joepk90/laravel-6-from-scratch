@@ -38,7 +38,9 @@ Route::get('/about', function () {
 
 });
 
-Route::get('articles/{article}', 'ArticlesController@show');
+Route::get('/articles', 'ArticlesController@paginate');
+
+Route::get('/articles/{article}', 'ArticlesController@show');
 
 Route::get('/example', function () {
 
