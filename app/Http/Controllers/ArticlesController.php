@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+
+    public function index() {
+        return view('articles.index', ['articles' => Article::paginate(10)]);
+    }
+
     public function show($id) {
         
         $article = Article::find($id);
 
         return view('articles.show', ['article' => $article]);
 
-    }
-
-    public function paginate() {
-        return view('articles.list', ['articles' => Article::paginate(10)]);
     }
 }
