@@ -24,7 +24,18 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+
+    // query examples
+    // $article = App\Article::all(); // get all article posts
+    // $article = App\Article::take(2)->get(); // get 2 article posts
+    // $article = App\Article::paginate(2); // get paginated articles
+    // $article = App\Article::latest()->get(); // get all article posts ordered by created at in decending order
+    // $article = App\Article::latest('updated_at')->get(); // get all article posts ordered by updated_at in decending order
+
+    return view('about', [
+        'articles' => App\Article::take(3)->latest()->get()
+    ]);
+
 });
 
 Route::get('/example', function () {
