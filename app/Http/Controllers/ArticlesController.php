@@ -77,4 +77,19 @@ class ArticlesController extends Controller
         // alternatively use compact('article'). same result as ['article' => $article]
         return view('articles.edit', ['article' => $article]);
     }
+
+    public function update($id)
+    {
+
+        $article = Article::find($id);
+
+        $article = new Article();
+        $article->title = request('title');
+        $article->excerpt = request('excerpt');
+        $article->body = request('body');
+
+        $article->save();
+
+        return redirect('/articles');
+    }
 }
