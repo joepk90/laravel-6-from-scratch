@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "onecentlin.laravel5-snippets",
+        "bmewburn.vscode-intelephense-client",
+        "amiralizadeh9480.laravel-extra-intellisense",
+        "codingyu.laravel-goto-view",
+        "onecentlin.laravel-blade"
+    ]
+}
