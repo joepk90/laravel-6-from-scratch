@@ -11,6 +11,9 @@
 |
 */
 
+// not required: used to help ide navigation
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
