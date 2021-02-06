@@ -32,4 +32,9 @@ class Article extends Model
     // {
     //     return 'slug'; // article::where('slug', $article)->first();
     // }
+
+    public function path()
+    {
+        return route('articles.show', $this);
+    }
 }
