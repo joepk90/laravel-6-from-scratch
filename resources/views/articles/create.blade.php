@@ -20,11 +20,11 @@
                 <label class="label" for="title">Title</label>
                
                 <div class="control">
-                    <input class="input {{ $errors->has('title') ? 'is-danger' : '' }}" type="text" name="title" id="title">
+                    <input class="input @error('title') is-danger @enderror" type="text" name="title" id="title">
                     
-                    @if($errors->has('title'))
+                    @error('title')
                         <p class="help is-danger">{{$errors->first('title')}}</p>
-                    @endif
+                    @enderror
 
                 </div>
 
