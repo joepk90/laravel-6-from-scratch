@@ -38,12 +38,7 @@ Route::get('/about', function () {
     return view('about', [
         'articles' => App\Article::take(3)->latest()->get()
     ]);
-
 });
-
-Route::get('/articles', 'ArticlesController@index');
-
-Route::get('/articles/{article}', 'ArticlesController@show');
 
 Route::get('/example', function () {
 
@@ -52,7 +47,6 @@ Route::get('/example', function () {
 
 });
 
-
 Route::get('/test', function () {
 
     $name = request('name');
@@ -60,7 +54,10 @@ Route::get('/test', function () {
     return view('test', [
         'name' => $name
     ]);
-
 });
 
 Route::get('/post/{post}', 'PostsController@show');
+
+Route::get('/articles', 'ArticlesController@index');
+
+Route::get('/articles/{article}', 'ArticlesController@show');
