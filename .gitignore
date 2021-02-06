@@ -13,3 +13,4 @@ yarn-error.log
 
 # custom
 .DS_Store
+.idea
