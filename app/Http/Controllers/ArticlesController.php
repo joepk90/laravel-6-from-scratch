@@ -64,7 +64,7 @@ class ArticlesController extends Controller
 
         Article::create($this->validateArticle());
 
-        return redirect('/articles');
+        return redirect(route('articles.show'));
     }
 
     public function edit(Article $article)
@@ -85,7 +85,7 @@ class ArticlesController extends Controller
         // $article->body = request('body');
         // $article->save();
 
-        return redirect('/articles');
+        return redirect(route('articles.show', $article));
     }
 
     protected function validateArticle()

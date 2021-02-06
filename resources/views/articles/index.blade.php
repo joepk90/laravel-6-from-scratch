@@ -10,7 +10,11 @@
 
 					<div class="title">
 						<h2>
-							<a href="/articles/{{$article->id}}">
+
+							<!-- Usign Named Route -->
+							<!-- optionally you be explicit and use $article->id -->
+							<!-- however by default laravel will know to fetch the correct key name -->
+							<a href="{{ route('articles.show', $article) }}">
 								{{$article->title}}
 							</a>
 						</h2>
