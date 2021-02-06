@@ -60,4 +60,6 @@ Route::get('/post/{post}', 'PostsController@show');
 
 Route::get('/articles', 'ArticlesController@index');
 
+Route::get('/articles/create', 'ArticlesController@create');
+
 Route::get('/articles/{article}', 'ArticlesController@show');
