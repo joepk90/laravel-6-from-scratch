@@ -7,7 +7,10 @@
 
         <h1 class="heading has-text-weight-bold is-size-4">New Article</h1>
 
-        <form action="">
+        <form method="POST" action="/articles">
+
+            @csrf <!-- cross site request forgery-->
+
             <div class="field">
 
                 <label class="label" for="title">Title</label>
