@@ -59,6 +59,12 @@ class ArticlesController extends Controller
 
         // dd(request()->all());
 
+        request()->validate([
+            'title' => 'required', // ['required', 'min:3', 'max:255']
+            'excerpt' => 'required',
+            'body' => 'required',
+        ]);
+
         $article = new Article();
         $article->title = request('title');
         $article->excerpt = request('excerpt');
