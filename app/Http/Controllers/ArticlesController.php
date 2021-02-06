@@ -62,17 +62,13 @@ class ArticlesController extends Controller
 
         // dd(request()->all());
 
-        request()->validate([
+        $validatedAttribtues = request()->validate([
             'title' => 'required', // ['required', 'min:3', 'max:255']
             'excerpt' => 'required',
             'body' => 'required',
         ]);
 
-        Article::create([
-            'title' => request('title'),
-            'excerpt' => request('excerpt'),
-            'body' => request('body'),
-        ]);
+        Article::create($validatedAttribtues);
 
         return redirect('/articles');
     }
@@ -86,18 +82,21 @@ class ArticlesController extends Controller
     public function update(Article $article)
     {
 
-        request()->validate([
+        $validatedAttribtues = request()->validate([
             'title' => 'required', // ['required', 'min:3', 'max:255']
             'excerpt' => 'required',
             'body' => 'required',
         ]);
 
-        $article = new Article();
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
+        // assign and persist updates
+        $article->update($validatedAttribtues);
 
-        $article->save();
+        // alternative, explicit approach
+        // $article = new Article();
+        // $article->title = request('title');
+        // $article->excerpt = request('excerpt');
+        // $article->body = request('body');
+        // $article->save();
 
         return redirect('/articles');
     }
