@@ -68,12 +68,11 @@ class ArticlesController extends Controller
             'body' => 'required',
         ]);
 
-        $article = new Article();
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-
-        $article->save();
+        Article::create([
+            'title' => request('title'),
+            'excerpt' => request('excerpt'),
+            'body' => request('body'),
+        ]);
 
         return redirect('/articles');
     }
