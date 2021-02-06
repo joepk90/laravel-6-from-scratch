@@ -25,6 +25,7 @@
                         type="text"
                         name="title"
                         id="title"
+                        value="{{ @old('title') }}"
                     >
                     
                     @error('title')
@@ -44,7 +45,7 @@
                         class="textarea @error('title') is-danger @enderror"
                         name="excerpt"
                         id="excerpt"
-                    ></textarea>
+                    >{{ @old('excerpt') }}</textarea>
 
                     @error('excerpt')
                         <p class="help is-danger">{{$errors->first('excerpt')}}</p>
@@ -63,7 +64,7 @@
                         class="textarea @error('title') is-danger @enderror"
                         name="body"
                         id="body"
-                    ></textarea>
+                    >{{ @old('body') }}</textarea>
 
                     @error('body')
                         <p class="help is-danger">{{$errors->first('body')}}</p>
