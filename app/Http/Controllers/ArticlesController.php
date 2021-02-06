@@ -41,11 +41,14 @@ class ArticlesController extends Controller
         return view('articles.index', ['articles' => Article::paginate(10)]);
     }
 
-    public function show($id)
+    /**
+     * note on using show(Article $article) 
+     * it is the same as running $article = Article::find($id); within the method
+     * important: Model name must match up with the wildcard used in the route handler ({artiicle} => Article)
+     * this approach also handles the findOrFail logic. a 404 will be returned if no article is found
+     */
+    public function show(Article $article)
     {
-
-        $article = Article::find($id);
-
         return view('articles.show', ['article' => $article]);
     }
 
@@ -75,16 +78,13 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
-
-        $article = Article::find($id);
-
         // alternatively use compact('article'). same result as ['article' => $article]
         return view('articles.edit', ['article' => $article]);
     }
 
-    public function update($id)
+    public function update(Article $article)
     {
 
         request()->validate([
@@ -92,8 +92,6 @@ class ArticlesController extends Controller
             'excerpt' => 'required',
             'body' => 'required',
         ]);
-
-        $article = Article::find($id);
 
         $article = new Article();
         $article->title = request('title');
