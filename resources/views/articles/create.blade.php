@@ -35,7 +35,12 @@
                 <label class="label" for="excerpt">Excerpt</label>
                
                 <div class="control">
-                    <textarea class="textarea" name="excerpt" id="excerpt" ></textarea>
+                    <textarea class="textarea @error('title') is-danger @enderror" name="excerpt" id="excerpt" ></textarea>
+
+                    @error('excerpt')
+                        <p class="help is-danger">{{$errors->first('excerpt')}}</p>
+                    @enderror
+
                 </div>
 
             </div>
@@ -45,7 +50,12 @@
                 <label class="label" for="body">Body</label>
                
                 <div class="control">
-                    <textarea class="textarea" name="body" id="body" ></textarea>
+                    <textarea class="textarea @error('title') is-danger @enderror" name="body" id="body" ></textarea>
+
+                    @error('body')
+                        <p class="help is-danger">{{$errors->first('body')}}</p>
+                    @enderror
+
                 </div>
 
             </div>
