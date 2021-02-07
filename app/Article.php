@@ -37,4 +37,8 @@ class Article extends Model
     {
         return route('articles.show', $this);
     }
+
+    public function user()
+    {
+    }
 }
