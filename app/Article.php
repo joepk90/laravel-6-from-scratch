@@ -40,5 +40,18 @@ class Article extends Model
 
     public function user()
     {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * by convention, laravel will use the method name to assume the property to use 
+     * this property to use can be overridden by pasing in th property name as the 2nd argument
+     * 
+     * see following example:
+     * without the override the belongsTo function would look for author_id (which wouldn't work)
+     */
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
