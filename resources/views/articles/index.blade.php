@@ -5,7 +5,7 @@
 <div id="wrapper">
 	<div id="page" class="container">
 		
-            @foreach ($articles as $article)
+            @forelse ($articles as $article)
 				<div class="content">
 
 					<div class="title">
@@ -25,7 +25,10 @@
 					<p>{{$article->excerpt}}</p>
 
 				</div>
-			@endforeach
+
+			@empty
+			<p>No relevent articles</p>
+			@endforelse
 
 	</div>
 </div>
