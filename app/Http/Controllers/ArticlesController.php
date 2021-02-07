@@ -74,9 +74,15 @@ class ArticlesController extends Controller
 
         // dd(request()->all());
 
-        Article::create($this->validateArticle());
+        $this->validateArticle();
 
-        return redirect(route('articles.show')); // TODO remove duplication
+        $article = new Article(request(['title', 'excerpt', 'body']));
+        $article->user_id = 1; // TODO setup authentication
+        $article->save();
+
+        $article->tags()->attach(request('tags'));
+
+        return redirect(route('articles.index')); // TODO remove duplication
     }
 
     public function edit(Article $article)
@@ -107,6 +113,7 @@ class ArticlesController extends Controller
             'title' => 'required', // ['required', 'min:3', 'max:255']
             'excerpt' => 'required',
             'body' => 'required',
+            'tags' => 'exists:tags,id' // check the id exists on the tags table 
         ]);
     }
 }
