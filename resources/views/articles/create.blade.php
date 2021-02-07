@@ -74,6 +74,33 @@
 
             </div>
 
+            <div class="field">
+                
+                <label class="label" for="tags">Tags</label>
+               
+                <div class="select is-multiple control">
+                    <select
+                        class="@error('tags') is-danger @enderror"
+                        name="tags[]"
+                        id="tags"
+                        multiple
+                    >
+                    @foreach ($tags as $tags)
+                        <option value="{{$tags->id}}">{{$tags->name}}</option>
+                    @endforeach
+                </select>
+
+                    @error('tags')
+
+                        <!-- shorthand alternative to $errors->first('tags') = $message -->
+                        <!--  -->
+                        <p class="help is-danger">{{$errors->first('tags')}}</p>
+                    @enderror
+
+                </div>
+
+            </div>
+
             <div class="field is-grouped">
 
                 <div class="control">
