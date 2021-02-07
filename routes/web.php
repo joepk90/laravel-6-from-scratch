@@ -58,7 +58,7 @@ Route::get('/test', function () {
 
 Route::get('/post/{post}', 'PostsController@show');
 
-Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 
 Route::post('/articles', 'ArticlesController@store');
 
