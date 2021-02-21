@@ -70,6 +70,8 @@ Route::get('/payments/create', 'PaymentsController@create')->middleware('auth');
 
 Route::post('/payments', 'PaymentsController@store')->middleware('auth');
 
+Route::get('/notifications', 'UserNotificationsController@show')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
