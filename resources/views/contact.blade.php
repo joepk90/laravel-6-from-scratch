@@ -8,7 +8,10 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-full" style="height: 100vh;">
 
-                <form class="bg-white p-6 rounded shadow-md" style="width: 300px">
+                <form   method="POST"
+                        action="/contact"
+                        class="bg-white p-6 rounded shadow-md"
+                        style="width: 300px">
                         @csrf
                         <div class="mb-5">
                                 <label 
