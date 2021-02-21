@@ -38,6 +38,12 @@
                                 class="bg-blue-500 py-2 text-white rounded-full text-sm w-full">
                                 Email me
                         </button>
+
+                        @if(session('message'))
+
+                                <div class="text-green-500 text-xs mt-2">{{session('message')}}</div>
+
+                        @endif
                        
                 </form>
 

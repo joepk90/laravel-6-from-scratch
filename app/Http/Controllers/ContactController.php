@@ -22,6 +22,7 @@ class ContactController extends Controller
                 ->subject('Hello there');
         });
 
-        return redirect('/contact');
+        return redirect('/contact')
+            ->with('message', 'Email Sent'); // flash message (value save to session for one request)
     }
 }
