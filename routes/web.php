@@ -66,6 +66,8 @@ Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 
 Route::put('/articles/{article}', 'ArticlesController@update');
 
+Route::get('/payments/create', 'PaymentsController@create')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
