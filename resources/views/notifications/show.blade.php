@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
-  Show All Notifications
+  <ul>
+    @foreach ($notifications as $notification)
+        <li>
+            @if ($notification->type === 'App\Notifications\PaymentReceived' )
+                We have received a payment ${{ $notification->data['amount'] / 100}} from you.    
+            @endif
+        </li>
+    @endforeach
+  </ul>
 </div>    
 @endsection
