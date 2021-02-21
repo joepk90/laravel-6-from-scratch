@@ -21,12 +21,19 @@
         
                         
                                 <input  id="email"
-                                        type="email"
+                                        type="text"
                                         class="border mb-2 px-2 py-2 text-sm w-full" 
                                         name="email"
                                         required autocomplete="email"
                                         autofocus />
-                    
+                        
+                                @error('email')
+                                        <div class="text-red-500 text-xs">{{ $message }}</div>
+                                @enderror
+
+                        </div>
+
+
                         <button type="submit"
                                 class="bg-blue-500 py-2 text-white rounded-full text-sm w-full">
                                 Email me
