@@ -20,6 +20,6 @@ class PaymentsController extends Controller
 
         // alternative syntax which reads better
         // makes more sense when sending a notificaiton to 1 use
-        request()->user()->notify(new PaymentReceived());
+        request()->user()->notify(new PaymentReceived('900'));
     }
 }
