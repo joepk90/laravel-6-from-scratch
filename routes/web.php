@@ -68,6 +68,8 @@ Route::put('/articles/{article}', 'ArticlesController@update');
 
 Route::get('/payments/create', 'PaymentsController@create')->middleware('auth');
 
+Route::post('/payments', 'PaymentsController@store')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
