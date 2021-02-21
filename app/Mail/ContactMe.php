@@ -32,8 +32,10 @@ class ContactMe extends Mailable
     {
 
         $htmlTemplate = 'emails.contact-me-html';
+        $markdownTemplate = 'emails.contact-me-md';
 
-        return $this->view($htmlTemplate)
+        // return $this->view($htmlTemplate)
+        return $this->markdown($markdownTemplate)
             ->subject('More information about ' . $this->topic);
     }
 }
