@@ -41,9 +41,12 @@ class PaymentReceived extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Your Laracasts payment was recieved') // defualt uses the name of the class (Payment Received)
+            ->greeting('Whats up?')
+            ->line('The introduction to the notification.')
+            ->line('Lorum Ipsum.')
+            ->action('Sign Up', url('/'))
+            ->line('Thanks');
     }
 
     /**
