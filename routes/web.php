@@ -69,3 +69,11 @@ Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.sho
 Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 
 Route::put('/articles/{article}', 'ArticlesController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/contact', 'ContactController@show');
+
+Route::post('/contact', 'ContactController@store');
