@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in! {{Auth::user()->name}}
+
+                    <br>
+                    <a href="/payments/create">Create a payment</a> (example notification)
+
                 </div>
             </div>
         </div>
