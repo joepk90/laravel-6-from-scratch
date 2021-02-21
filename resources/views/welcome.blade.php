@@ -6,7 +6,7 @@
 		<div id="banner-wrapper">
 			<div id="banner" class="container">
 
-					@if (Auth::check())
+					@auth
 					<h2>Hi, {{Auth::user()->name}}</h2>
                     @else 
 						<h2>Maecenas luctus lectus</h2>
