@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMe;
 
 class ContactController extends Controller
 {
@@ -16,11 +17,9 @@ class ContactController extends Controller
     {
         request()->validate(['email' => 'required|email']);
 
-        Mail::raw('It works!', function ($message) {
+        Mail::to(request('email'))
+            ->send(new ContactMe());
 
-            $message->to(request('email'))
-                ->subject('Hello there');
-        });
 
         return redirect('/contact')
             ->with('message', 'Email Sent'); // flash message (value save to session for one request)
