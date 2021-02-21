@@ -51,7 +51,7 @@ class User extends Authenticatable
     public function routeNotificationForNexmo($notification)
     {
         // return $this->phone_number;
-        return ''; // hardcoded for testing purposes.
+        return '99999999999'; // change this (hardcoded for testing purposes).
     }
 }
 

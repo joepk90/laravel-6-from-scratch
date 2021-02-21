@@ -35,7 +35,7 @@ class PaymentReceived extends Notification
         return [
             'mail',
             'database',
-            'nexmo' // not yet working - no number provided in nexmo account... (correct number needs to be assigned in config/services.php)
+            // 'nexmo' // not yet working - no number provided in nexmo account... (correct number needs to be assigned in config/services.php)
         ];
     }
 

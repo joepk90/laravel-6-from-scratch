@@ -31,7 +31,7 @@ return [
     ],
 
     'nexmo' => [
-        'sms_from' => '15556666666', // incorrect number
+        'sms_from' => '99999999999', // change this
     ],
 
 ];
