@@ -18,7 +18,7 @@ class ContactController extends Controller
         request()->validate(['email' => 'required|email']);
 
         Mail::to(request('email'))
-            ->send(new ContactMe());
+            ->send(new ContactMe('shirts'));
 
 
         return redirect('/contact')

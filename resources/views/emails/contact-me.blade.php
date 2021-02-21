@@ -9,6 +9,7 @@
 <body>
     
     <h1>It Works!</h1>
+    <p>It sounds like you want to learn more about {{ $topic }}</p>
 
 </body>
 </html>
