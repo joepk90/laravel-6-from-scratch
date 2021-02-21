@@ -47,6 +47,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class); // select * from articles where user_id = {CURRENT USER_ID}
     }
+
+    public function routeNotificationForNexmo($notification)
+    {
+        // return $this->phone_number;
+        return ''; // hardcoded for testing purposes.
+    }
 }
 
 /**

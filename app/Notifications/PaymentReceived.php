@@ -64,8 +64,9 @@ class PaymentReceived extends Notification
      */
     public function toNexmo($notifiable)
     {
-        return (new NexmoMessage)
-            ->content('Your SMS message content');
+        return (new NexmoMessage())
+            ->content('Your Laracasts payment has been processed');
+        // ->from(09999939393); // option to change phone number on a per notification basis
     }
 
     /**
