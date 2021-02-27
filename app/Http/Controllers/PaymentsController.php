@@ -24,12 +24,10 @@ class PaymentsController extends Controller
         // makes more sense when sending a notificaiton to 1 use
         // request()->user()->notify(new PaymentReceived('900'));
 
-        redirect('/payments/create')
-            ->with('message', 'Payment Successful');
-
-
         // dispath event 
         ProductPurchased::dispatch('toy'); // identical to: event(new ProductPurchased('toy'));
 
+        return redirect('/payments/create')
+            ->with('message', 'Payment Successful');
     }
 }
