@@ -71,7 +71,12 @@ class User extends Authenticatable
 
     public function assignRole($role)
     {
-        return $this->roles()->save($role);
+
+        if (is_string($role)) {
+            $role = Role::whereName($role)->firstOrFail();
+        }
+
+        return $this->roles()->sync($role, false);
     }
 
     public function abilities()

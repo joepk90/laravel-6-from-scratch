@@ -16,6 +16,11 @@ class Role extends Model
 
     public function allowTo($ability)
     {
-        return $this->abilities()->save($ability);
+
+        if (is_string($ability)) {
+            $ability = Ability::whereName($ability)->firstOrFail();
+        }
+
+        return $this->abilities()->sync($ability, false);
     }
 }
