@@ -27,12 +27,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        // logic handled in ConversationPolicy
         // requires a validated user (i.e. must be signed in)
         // using ?User $user would make the registered user requirement optional
-        Gate::define('update-conversation', function (User $user, Conversation $conversation) {
+        // Gate::define('update-conversation', function (User $user, Conversation $conversation) {
 
-            // return true if the user owns the conversation
-            return $conversation->user->is($user);
-        });
+        // return true if the user owns the conversation
+        // return $conversation->user->is($user);
+        // });
     }
 }

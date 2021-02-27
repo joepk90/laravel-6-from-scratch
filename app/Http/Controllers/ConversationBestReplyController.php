@@ -11,7 +11,7 @@ class ConversationBestReplyController extends Controller
     public function store(Reply $reply)
     {
         // authorize that the current user has permission to set the best reply
-        $this->authorize('update-conversation', $reply->conversation);
+        $this->authorize('update', $reply->conversation);
 
         // alternative approach
         // if (Gate::denies('update-conversation', $reply->conversation())) {};
