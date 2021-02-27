@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProductPurchased;
 use Illuminate\Http\Request;
 use App\Notifications\PaymentReceived;
 use Illuminate\Support\Facades\Notification;
@@ -24,5 +25,10 @@ class PaymentsController extends Controller
 
         return redirect('/payments/create')
             ->with('message', 'Payment Successful');
+
+
+        // dispath event 
+        ProductPurchased::dispatch('toy'); // identical to: event(new ProductPurchased('toy'));
+
     }
 }
