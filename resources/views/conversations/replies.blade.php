@@ -6,7 +6,7 @@
 
 
         @can('update-conversation', $conversation)
-            <form action="">
+            <form method="GET" action="/best-reply/{{$reply->id}}">
                 <button type="submit" class="btn p-0 text-muted" >Best Reply</button>
             </form>
         @endcan
