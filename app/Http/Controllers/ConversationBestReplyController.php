@@ -16,9 +16,7 @@ class ConversationBestReplyController extends Controller
         // alternative approach
         // if (Gate::denies('update-conversation', $reply->conversation())) {};
 
-
-        $reply->conversation->best_reply_id = $reply->id;
-        $reply->conversation->save();
+        $reply->conversation->setBestReply($reply);
 
         return back();
     }
