@@ -16,6 +16,7 @@
 
                 <hr>
 
+                @include('conversations.replies')
             </p>
         </div>
     </div>
