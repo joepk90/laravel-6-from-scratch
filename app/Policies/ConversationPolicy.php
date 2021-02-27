@@ -13,14 +13,17 @@ class ConversationPolicy
     /**
      * Before Hook
      * Note: only return if false (using return will stop any proceeding methods from being called)
+     * 
+     * Moved to global layer: Auth Service Provider
+     * 
      */
-    public function before(User $user)
-    {
+    // public function before(User $user)
+    // {
 
-        if ($user->id === 3) {
-            return true;
-        }
-    }
+    //     if ($user->id === 3) {
+    //         return true;
+    //     }
+    // }
 
     /**
      * Determine whether the user can update the conversation.

@@ -35,5 +35,11 @@ class AuthServiceProvider extends ServiceProvider
         // return true if the user owns the conversation
         // return $conversation->user->is($user);
         // });
+
+        Gate::before(function (User $user) {
+            if ($user->id === 3) {
+                return true;
+            }
+        });
     }
 }
