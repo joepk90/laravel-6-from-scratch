@@ -79,3 +79,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contact', 'ContactController@show');
 
 Route::post('/contact', 'ContactController@store');
+
+
+/** Conversations Controllers */
+
+Route::get('/conversations', 'ConversationsController@index');
+
+Route::get('/conversations/{conversation}', 'ConversationsController@show');

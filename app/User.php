@@ -53,6 +53,11 @@ class User extends Authenticatable
         // return $this->phone_number;
         return '99999999999'; // change this (hardcoded for testing purposes).
     }
+
+    public function conversations()
+    {
+        return $this->hasMany(Conversation::class);
+    }
 }
 
 /**
