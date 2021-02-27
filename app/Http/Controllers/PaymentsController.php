@@ -24,7 +24,7 @@ class PaymentsController extends Controller
         // makes more sense when sending a notificaiton to 1 use
         // request()->user()->notify(new PaymentReceived('900'));
 
-        return redirect('/payments/create')
+        redirect('/payments/create')
             ->with('message', 'Payment Successful');
 
 
