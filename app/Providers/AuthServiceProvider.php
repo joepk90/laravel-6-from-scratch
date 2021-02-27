@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Conversation;
+use App\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // requires a validated user (i.e. must be signed in)
+        // using ?User $user would make the registered user requirement optional
+        Gate::define('update-conversation', function (User $user, Conversation $conversation) {
+            return true;
+        });
     }
 }
