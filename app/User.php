@@ -63,6 +63,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function assignRole($role)
+    {
+        return $this->roles()->save($role);
+    }
 }
 
 /**
