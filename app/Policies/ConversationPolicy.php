@@ -11,6 +11,18 @@ class ConversationPolicy
     use HandlesAuthorization;
 
     /**
+     * Before Hook
+     * Note: only return if false (using return will stop any proceeding methods from being called)
+     */
+    public function before(User $user)
+    {
+
+        if ($user->id === 3) {
+            return true;
+        }
+    }
+
+    /**
      * Determine whether the user can update the conversation.
      *
      * @param  \App\User  $user
