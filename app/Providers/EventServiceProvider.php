@@ -20,10 +20,6 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-        ],
-        ProductPurchased::class => [
-            AwardAchievements::class,
-            SendShareableCoupon::class
         ]
     ];
 
@@ -37,5 +33,19 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         //
+    }
+
+    /**
+     * override shouldDiscoverEvents method
+     * make Laravel scan listeners direectory for listeners
+     * looks for any handle method on an event
+     * 
+     * pitfalls to this approach - no explicit decleration (unable to see registereed events)
+     * use the following cmmand to see registered events
+     * php artisan event:list to se
+     */
+    public function shouldDiscoverEvents()
+    {
+        return true;
     }
 }
