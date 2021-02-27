@@ -87,4 +87,7 @@ Route::get('/conversations', 'ConversationsController@index');
 
 Route::get('/conversations/{conversation}', 'ConversationsController@show');
 
+// method to apply middleware to run authorisation on the conversation view 
+// ->middleware('can:view,conversation'); 
+
 Route::get('/best-reply/{reply}', 'ConversationBestReplyController@store');

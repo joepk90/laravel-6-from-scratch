@@ -25,6 +25,11 @@ class ConversationPolicy
     //     }
     // }
 
+    public function view(User $user, Conversation $conversation)
+    {
+        return $conversation->user->is($user);
+    }
+
     /**
      * Determine whether the user can update the conversation.
      *
