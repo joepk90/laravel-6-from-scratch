@@ -86,3 +86,5 @@ Route::post('/contact', 'ContactController@store');
 Route::get('/conversations', 'ConversationsController@index');
 
 Route::get('/conversations/{conversation}', 'ConversationsController@show');
+
+Route::get('/best-reply/{reply}', 'ConversationBestReplyController@store');
