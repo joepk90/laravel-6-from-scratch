@@ -36,6 +36,12 @@ class AuthServiceProvider extends ServiceProvider
         // return $conversation->user->is($user);
         // });
 
+
+        // authentication for roles. disabled as it conflicts with the conversation (best reply functionality)
+        // Gate::before(function ($user, $ability) {
+        //     return $user->abilities()->contains($ability);
+        // });
+
         Gate::before(function (User $user) {
             if ($user->id === 3) {
                 return true;

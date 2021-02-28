@@ -20,6 +20,17 @@
                     <a href="/payments/create">Create a payment</a> (example notification)
 
                 </div>
+                <div class="card-body">
+
+                    <h3>Roles and Abilities</h3>
+
+                    If you have been assigned a role with privaliges, your options will be displayed below
+                    <hr>
+                    @can('edit_forum')
+                        <a href="">Edit Forum</a>
+                    @endcan
+
+                </div>
             </div>
         </div>
     </div>
